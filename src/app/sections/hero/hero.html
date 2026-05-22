@@ -32,7 +32,7 @@
             Ver servicios
           </a>
           <a
-            [href]="whatsappUrl"
+            [href]="'https://api.whatsapp.com/send/?phone=%2B56964945093&text&type=phone_number&app_absent=0'"
             target="_blank"
             rel="noopener noreferrer"
             class="font-sans font-medium text-sm border-2 border-bosque text-bosque px-6 py-3 rounded-md
@@ -41,15 +41,6 @@
           >
             Contáctame
           </a>
-        </div>
-
-        <!-- Badges de credenciales -->
-        <div appReveal revealDelay="reveal-delay-3" class="flex flex-wrap gap-2 pt-2">
-          @for (badge of config.hero.badges; track badge) {
-            <span class="font-sans text-xs font-medium text-piedra bg-niebla border border-tierra/25 px-3 py-1.5 rounded-full">
-              {{ badge }}
-            </span>
-          }
         </div>
       </div>
 
