@@ -21,7 +21,7 @@ export const siteConfig = {
   contact: {
     email: '[alvarocastillocu@gmail.com]',
     phone: '[+56 9 64945093]',
-    whatsapp: '[56964945093]',
+    whatsapp: '+56964945093',
     location: 'Trongol Bajo, Curanilahue · Biobío, Chile',
     linkedin: 'https://www.linkedin.com/in/%C3%A1lvaro-enrique-castillo-cuevas-3b656223a/',
     instagram: 'asvpcastillo_',
