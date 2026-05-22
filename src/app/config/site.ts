@@ -19,44 +19,32 @@ export const siteConfig = {
 
   // ─── Datos de contacto ────────────────────────────────────────────
   contact: {
-    // EDITAR: Correo electrónico profesional
-    email: '[correo@ejemplo.cl]',
-    // EDITAR: Teléfono con código de país
-    phone: '[+56 9 XXXX XXXX]',
-    // EDITAR: Número para WhatsApp (solo dígitos, sin +)
-    whatsapp: '[569XXXXXXXX]',
-    // EDITAR: Ciudad / región
+    email: '[alvarocastillocu@gmail.com]',
+    phone: '[+56 9 64945093]',
+    whatsapp: '[56964945093]',
     location: 'Trongol Bajo, Curanilahue · Biobío, Chile',
-    // EDITAR: URL completa del perfil de LinkedIn
-    linkedin: 'https://linkedin.com/in/[tu-perfil]',
-    // EDITAR: Usuario de Instagram (sin @)
-    instagram: '[tu_usuario]',
+    linkedin: 'https://www.linkedin.com/in/%C3%A1lvaro-enrique-castillo-cuevas-3b656223a/',
+    instagram: 'asvpcastillo_',
   },
 
   // ─── Hero ──────────────────────────────────────────────────────────
   hero: {
-    // EDITAR: Subtítulo del hero
     subtitle:
-      'Donde el conocimiento técnico y el respeto por el territorio se unen para hacer del bosque un aliado productivo y sustentable.',
-    // Badges de credenciales (no editar a menos que cambien)
-    badges: ['UdeC', 'CONAF', 'INFOR'],
+      'Donde el conocimiento técnico y el respeto por el territorio se unen para hacer del bosque un aliado productivo y sustentable.'
   },
 
   // ─── Sección "Sobre mí" ────────────────────────────────────────────
   about: {
-    // EDITAR: Párrafos de la bio (arreglo de strings, uno por párrafo)
     bio: [
       'Soy Álvaro Castillo Cuevas, Ingeniero Forestal egresado de la Universidad de Concepción. Mi trabajo parte de una convicción simple: el bosque no es solo un recurso, es un sistema vivo que merece ser manejado con criterio técnico y respeto por sus ciclos naturales.',
       'Mi experiencia en CONAF e INFOR me permitió entender el sector desde adentro —sus normas, sus tiempos, sus desafíos— y conocer de cerca la realidad de los pequeños propietarios rurales, que a menudo tienen el territorio pero no el acompañamiento técnico que necesitan.',
       'Hoy trabajo de manera independiente desde Trongol Bajo, Curanilahue. Creo que la producción forestal responsable y el equilibrio ecológico no se contradicen: cuando se hace bien, el manejo del bosque beneficia al propietario, a la comunidad y al ecosistema.',
     ],
 
-    // EDITAR: Estadísticas (números destacados)
     stats: [
-      // EDITAR: Reemplaza los valores con los reales
-      { value: '[X]+', label: 'Años trabajando el territorio' },
-      { value: '[XX]+', label: 'Proyectos acompañados' },
-      { value: '[X.XXX]+', label: 'Hectáreas gestionadas' },
+      { value: '[5]+', label: 'Años trabajando el territorio' },
+      { value: '[10]+', label: 'Proyectos acompañados' },
+      // { value: '[X.XXX]+', label: 'Hectáreas gestionadas' },
     ],
   },
 
@@ -65,11 +53,8 @@ export const siteConfig = {
     {
       institution: 'CONAF',
       fullName: 'Corporación Nacional Forestal',
-      // EDITAR: Cargo desempeñado
       role: '[Cargo / Rol]',
-      // EDITAR: Período (ej. "2019 – 2022")
       period: '[Año inicio] – [Año término]',
-      // EDITAR: 1 o 2 logros/responsabilidades principales
       achievements: [
         '[Describir logro o responsabilidad principal]',
         '[Proyecto o acción destacada]',
@@ -91,10 +76,8 @@ export const siteConfig = {
       institution: 'Universidad de Concepción',
       fullName: 'Facultad de Ciencias Forestales',
       role: 'Ingeniería Forestal',
-      // EDITAR: Año de egreso
       period: 'Egresado [Año]',
       achievements: [
-        // EDITAR: Mención u honor si aplica
         '[Completar: mención, honor o especialidad si corresponde]',
       ],
       type: 'education' as const,
@@ -116,7 +99,6 @@ export const siteConfig = {
   ],
 
   // ─── Footer ────────────────────────────────────────────────────────
-  // EDITAR: Tagline del footer
   tagline: 'Ingeniería forestal con arraigo territorial · Curanilahue, Chile',
 
   // Año automático (no editar)
