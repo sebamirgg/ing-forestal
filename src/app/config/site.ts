@@ -93,7 +93,7 @@ export const siteConfig = {
     },
     {
       name: 'Pensamiento Trongol Bajo',
-      description: 'Organización Comunitaria',
+      description: '',
       logoUrl: 'https://i.ibb.co/Fbjnq3G6/470923440-1138447231138237-8662418479334098606-n.jpg',
     },
   ],
