@@ -1,0 +1,20 @@
+<article
+  class="bg-hueso border border-tierra/20 rounded-lg p-8 flex flex-col gap-5
+         transition-transform duration-300 hover:-translate-y-1 hover:border-tierra/40
+         hover:shadow-sm group"
+  role="article"
+>
+  <!-- Icono -->
+  <div class="w-12 h-12 rounded-md bg-bosque/8 flex items-center justify-center group-hover:bg-bosque/12 transition-colors">
+    <lucide-icon [img]="service.icon" [size]="24" class="text-bosque" color="#2D4A3E" />
+  </div>
+
+  <!-- Contenido -->
+  <div class="flex flex-col gap-3 flex-1">
+    <h3 class="font-serif text-xl font-semibold text-carbon leading-snug">{{ service.title }}</h3>
+    <p class="font-sans text-piedra text-sm leading-relaxed flex-1">{{ service.description }}</p>
+  </div>
+
+  <!-- Línea decorativa -->
+  <div class="h-px w-12 bg-tierra/60 group-hover:w-20 transition-all duration-300"></div>
+</article>

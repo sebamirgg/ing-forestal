@@ -1,59 +1,176 @@
-# IngForestal
+# Sitio Web — Ingeniero Forestal
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.1.4.
+Sitio web personal de una sola página (one-page) construido con **Angular 21** y **TailwindCSS v4**. Funciona como carta de presentación profesional para un ingeniero forestal chileno.
 
-## Development server
+---
 
-To start a local development server, run:
+## Stack tecnológico
 
-```bash
-ng serve
-```
+| Tecnología | Versión | Uso |
+|---|---|---|
+| Angular | 21 | Framework frontend (standalone components) |
+| TailwindCSS | 4 | Estilos utilitarios |
+| lucide-angular | 1.0 | Iconos |
+| Angular Reactive Forms | — | Formulario de contacto |
+| Angular SSR | — | Pre-rendering para SEO |
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+---
 
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+## Instalación y desarrollo
 
 ```bash
-ng generate --help
+# 1. Instalar dependencias
+npm install
+
+# 2. Iniciar servidor de desarrollo (http://localhost:4200)
+npm start
 ```
 
-## Building
+---
 
-To build the project run:
+## Cómo editar el contenido
+
+> **Todo el contenido editable está centralizado en un solo archivo:**
+> `src/app/config/site.ts`
+
+Abre ese archivo y busca los comentarios `// EDITAR:` para guiarte. Desde ahí puedes cambiar:
+
+- Nombre y apellido
+- Datos de contacto (email, teléfono, WhatsApp, LinkedIn, Instagram)
+- Textos del hero y la bio
+- Estadísticas (años de experiencia, proyectos, hectáreas)
+- Historial de experiencia y formación
+- Tagline del footer
+
+**Ejemplo:**
+```typescript
+// Antes
+name: '[Nombre Completo]',
+
+// Después
+name: 'Juan Carlos Pérez Rodríguez',
+```
+
+---
+
+## Cómo reemplazar las imágenes placeholder
+
+En las secciones **Hero** y **Sobre mí** hay divisores con texto `[Foto del cliente]`.
+
+Para reemplazarlos:
+
+1. Agrega tu imagen en `src/assets/images/` (ej: `foto-perfil.webp`, `foto-terreno.webp`)
+2. Busca en los archivos HTML el comentario `<!-- EDITAR: Reemplazar este div -->` y sustituye el `<div>` placeholder por:
+
+```html
+<img
+  src="assets/images/foto-perfil.webp"
+  alt="[Nombre] trabajando en terreno forestal"
+  class="w-72 h-96 lg:w-80 lg:h-[460px] object-cover rounded-lg"
+  loading="lazy"
+/>
+```
+
+Los archivos a modificar son:
+- `src/app/sections/hero/hero.html` (foto hero)
+- `src/app/sections/about/about.html` (foto sobre mí)
+
+---
+
+## Cómo conectar el formulario de contacto
+
+El formulario actualmente solo muestra un mensaje de confirmación. Para conectarlo a un servicio real:
+
+### Opción A — Formspree (gratuito, sin backend)
+1. Crea una cuenta en [formspree.io](https://formspree.io)
+2. Crea un nuevo formulario y copia el ID
+3. En `src/app/sections/contact/contact.ts`, reemplaza el `console.log` con:
+
+```typescript
+fetch('https://formspree.io/f/TU_FORM_ID', {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify(this.form.value),
+});
+```
+
+### Opción B — EmailJS
+1. Crea una cuenta en [emailjs.com](https://www.emailjs.com)
+2. Instala: `npm install @emailjs/browser`
+3. Sigue su documentación para enviar el `form.value`
+
+---
+
+## Build y deploy
+
+### Build de producción
 
 ```bash
-ng build
+npm run build
+# Genera la carpeta dist/ing-forestal/browser/
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+### Deploy en Vercel
 
-## Running unit tests
+1. Conecta el repositorio en [vercel.com](https://vercel.com) y configura:
+   - **Framework Preset:** Angular
+   - **Build Command:** `npm run build`
+   - **Output Directory:** `dist/ing-forestal/browser`
 
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
+### Deploy en Netlify
 
-```bash
-ng test
+- **Build command:** `npm run build`
+- **Publish directory:** `dist/ing-forestal/browser`
+
+### Deploy en Cloudflare Pages
+
+- **Framework preset:** Angular
+- **Build command:** `npm run build`
+- **Build output directory:** `dist/ing-forestal/browser`
+
+---
+
+## Estructura del proyecto
+
+```
+src/
+  app/
+    config/
+      site.ts              ← TODO EL CONTENIDO EDITABLE AQUÍ
+    sections/
+      hero/                ← Sección hero (portada)
+      about/               ← Sección "Sobre mí"
+      services/            ← Sección "Servicios"
+      experience/          ← Sección "Experiencia"
+      contact/             ← Sección "Contacto" + formulario
+    components/
+      navbar/              ← Barra de navegación sticky
+      footer/              ← Pie de página
+      service-card/        ← Tarjeta de servicio reutilizable
+      timeline-item/       ← Ítem de línea de tiempo
+    directives/
+      reveal.directive.ts  ← Animación fade-in al scroll
+  styles.css               ← Tailwind v4 + paleta + fuentes
+index.html                 ← SEO, Open Graph, Schema.org, Google Fonts
 ```
 
-## Running end-to-end tests
+---
 
-For end-to-end (e2e) testing, run:
+## Paleta de colores
 
-```bash
-ng e2e
-```
+| Variable | Hex | Uso |
+|---|---|---|
+| `bosque` | `#2D4A3E` | Verde profundo — primario |
+| `musgo` | `#6B7F4A` | Verde oliva — secundario |
+| `tierra` | `#8B6F47` | Tierra/madera — acento |
+| `arcilla` | `#B85C3C` | Terracota — CTAs destacados |
+| `hueso` | `#F5F1E8` | Fondo principal |
+| `niebla` | `#E8E2D4` | Fondo alterno |
+| `carbon` | `#1A1A1A` | Texto principal |
+| `piedra` | `#5A5A52` | Texto secundario |
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+---
 
-## Additional Resources
+## Licencia
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Proyecto de uso privado. Todos los derechos reservados.

@@ -1,3 +1,58 @@
-/* You can add global styles to this file, and also import other style files */
-
 @import "tailwindcss";
+
+/* ─── Tema Tailwind v4 ──────────────────────────────────────────────────── */
+@theme {
+  /* Paleta forestal */
+  --color-bosque:  #2D4A3E;
+  --color-musgo:   #6B7F4A;
+  --color-tierra:  #8B6F47;
+  --color-arcilla: #B85C3C;
+  --color-hueso:   #F5F1E8;
+  --color-niebla:  #E8E2D4;
+  --color-carbon:  #1A1A1A;
+  --color-piedra:  #5A5A52;
+
+  /* Tipografías */
+  --font-sans:  'Inter', ui-sans-serif, system-ui, sans-serif;
+  --font-serif: 'Fraunces', ui-serif, Georgia, serif;
+}
+
+/* ─── Base ──────────────────────────────────────────────────────────────── */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #F5F1E8;
+  color: #1A1A1A;
+  font-family: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ─── Animación scroll-reveal (directiva appReveal) ────────────────────── */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.65s ease-out, transform 0.65s ease-out;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+.reveal-delay-4 { transition-delay: 0.4s; }
+
+/* ─── Scrollbar sutil ───────────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #F5F1E8; }
+::-webkit-scrollbar-thumb { background: #8B6F47; border-radius: 3px; }
+
+/* ─── Focus visible accesible ───────────────────────────────────────────── */
+:focus-visible {
+  outline: 2px solid #2D4A3E;
+  outline-offset: 3px;
+}

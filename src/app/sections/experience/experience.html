@@ -1,0 +1,57 @@
+<section id="experiencia" class="bg-niebla py-24 lg:py-32 px-6" aria-labelledby="experience-title">
+  <div class="max-w-6xl mx-auto">
+
+    <!-- Header de sección -->
+    <div class="grid lg:grid-cols-2 gap-8 mb-16">
+      <div>
+        <div appReveal class="flex items-center gap-3 mb-6">
+          <span class="h-px w-8 bg-tierra"></span>
+          <span class="font-sans text-xs font-semibold text-tierra uppercase tracking-widest">Trayectoria</span>
+        </div>
+        <h2 appReveal id="experience-title" class="font-serif text-4xl lg:text-5xl font-bold text-carbon leading-tight">
+          Trayectoria con<br>raíces en el territorio
+        </h2>
+      </div>
+      <div appReveal revealDelay="reveal-delay-1" class="lg:pt-16 flex items-end">
+        <p class="font-sans text-piedra leading-relaxed">
+          Formación académica, experiencia institucional y compromiso comunitario: una trayectoria que no separa el conocimiento técnico del arraigo territorial.
+        </p>
+      </div>
+    </div>
+
+    <!-- Timeline a ancho completo, 2 columnas en desktop -->
+    <div appReveal revealDelay="reveal-delay-1" class="grid lg:grid-cols-2 gap-x-16">
+      @for (entry of config.experience; track entry.institution; let last = $last) {
+        <app-timeline-item
+          [entry]="entry"
+          [icon]="getIcon(entry.type)"
+          [isLast]="last"
+        />
+      }
+    </div>
+
+    <!-- Formo parte de -->
+    <div appReveal revealDelay="reveal-delay-2" class="mt-14 pt-10 border-t border-tierra/20">
+      <p class="font-sans text-xs font-semibold text-tierra uppercase tracking-widest mb-6">Formo parte de</p>
+
+      <div class="flex flex-wrap gap-4">
+        @for (m of config.memberships; track m.name) {
+          <div class="flex items-center gap-3 bg-white/70 border border-tierra/15 rounded-lg px-4 py-3">
+            <div class="w-10 h-10 rounded-md overflow-hidden flex-shrink-0 bg-niebla flex items-center justify-center">
+              @if (m.logoUrl) {
+                <img [src]="m.logoUrl" [alt]="'Logo ' + m.name" class="w-full h-full object-cover" />
+              } @else {
+                <span class="font-sans text-[9px] text-piedra/50 text-center leading-tight px-1">Logo</span>
+              }
+            </div>
+            <div>
+              <p class="font-sans text-sm font-semibold text-carbon leading-tight">{{ m.name }}</p>
+              <p class="font-sans text-xs text-piedra">{{ m.description }}</p>
+            </div>
+          </div>
+        }
+      </div>
+    </div>
+
+  </div>
+</section>

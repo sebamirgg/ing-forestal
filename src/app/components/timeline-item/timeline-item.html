@@ -1,0 +1,32 @@
+<div class="relative flex gap-6">
+  <!-- Línea vertical (se oculta en el último item) -->
+  @if (!isLast) {
+    <div class="absolute left-5 top-12 w-px h-full bg-tierra/25"></div>
+  }
+
+  <!-- Marcador circular -->
+  <div class="relative z-10 flex-shrink-0 w-10 h-10 rounded-full bg-bosque flex items-center justify-center mt-1">
+    <lucide-icon [img]="icon" [size]="18" color="#F5F1E8" />
+  </div>
+
+  <!-- Contenido -->
+  <div class="pb-10 flex-1">
+    <div class="flex flex-wrap items-center gap-x-3 gap-y-1 mb-1">
+      <span class="font-serif text-xl font-semibold text-carbon">{{ entry.institution }}</span>
+      <span class="font-sans text-xs text-tierra font-medium px-2 py-0.5 rounded-full bg-tierra/10">
+        {{ entry.period }}
+      </span>
+    </div>
+    <p class="font-sans text-sm text-piedra mb-2">{{ entry.fullName }}</p>
+    <p class="font-sans font-medium text-bosque text-sm mb-3">{{ entry.role }}</p>
+
+    <ul class="flex flex-col gap-1.5">
+      @for (item of entry.achievements; track item) {
+        <li class="font-sans text-sm text-piedra flex items-start gap-2">
+          <span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-tierra/60 flex-shrink-0"></span>
+          {{ item }}
+        </li>
+      }
+    </ul>
+  </div>
+</div>

@@ -1,0 +1,80 @@
+<footer class="bg-carbon text-hueso/70 py-12 px-6" role="contentinfo">
+  <div class="max-w-6xl mx-auto">
+    <div class="grid md:grid-cols-3 gap-10 pb-10 border-b border-hueso/10">
+      <!-- Bloque 1: Nombre + tagline -->
+      <div class="flex flex-col gap-3">
+        <span class="font-serif text-2xl font-semibold text-hueso">{{ config.shortName }}</span>
+        <p class="font-sans text-sm leading-relaxed">{{ config.tagline }}</p>
+        <p class="font-sans text-xs text-hueso/40 mt-1">
+          Egresado Universidad de Concepción
+        </p>
+      </div>
+
+      <!-- Bloque 2: Links rápidos -->
+      <div class="flex flex-col gap-3">
+        <span class="font-sans text-xs font-semibold text-hueso/40 uppercase tracking-widest">Navegación</span>
+        <ul class="flex flex-col gap-2" role="list">
+          @for (link of quickLinks; track link.href) {
+            <li>
+              <a
+                [href]="link.href"
+                class="font-sans text-sm hover:text-hueso transition-colors"
+                [attr.aria-label]="'Ir a ' + link.label"
+              >
+                {{ link.label }}
+              </a>
+            </li>
+          }
+        </ul>
+      </div>
+
+      <!-- Bloque 3: Redes sociales -->
+      <div class="flex flex-col gap-3">
+        <span class="font-sans text-xs font-semibold text-hueso/40 uppercase tracking-widest">Redes</span>
+        <div class="flex gap-4">
+          <a
+            [href]="config.contact.linkedin"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="w-9 h-9 rounded-md border border-hueso/15 flex items-center justify-center
+                   hover:border-tierra/60 hover:text-hueso transition-colors"
+            aria-label="LinkedIn"
+          >
+            <lucide-icon [img]="linkedinIcon" [size]="16" />
+          </a>
+          <a
+            href="https://instagram.com/{{ config.contact.instagram }}"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="w-9 h-9 rounded-md border border-hueso/15 flex items-center justify-center
+                   hover:border-tierra/60 hover:text-hueso transition-colors"
+            aria-label="Instagram"
+          >
+            <lucide-icon [img]="instagramIcon" [size]="16" />
+          </a>
+          <a
+            href="https://wa.me/{{ config.contact.whatsapp }}"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="w-9 h-9 rounded-md border border-hueso/15 flex items-center justify-center
+                   hover:border-tierra/60 hover:text-hueso transition-colors"
+            aria-label="WhatsApp"
+          >
+            <lucide-icon [img]="whatsappIcon" [size]="16" />
+          </a>
+        </div>
+        <a
+          [href]="'mailto:' + config.contact.email"
+          class="font-sans text-sm hover:text-hueso transition-colors mt-1"
+        >
+          {{ config.contact.email }}
+        </a>
+      </div>
+    </div>
+
+    <!-- Línea inferior -->
+    <p class="font-sans text-xs text-hueso/35 text-center pt-8">
+      © {{ config.year }} {{ config.name }}. Sitio diseñado en Chile.
+    </p>
+  </div>
+</footer>

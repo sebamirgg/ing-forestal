@@ -1,0 +1,33 @@
+<section id="servicios" class="bg-hueso py-24 lg:py-32 px-6" aria-labelledby="services-title">
+  <div class="max-w-6xl mx-auto">
+
+    <!-- Header de sección -->
+    <div class="grid lg:grid-cols-2 gap-8 mb-16">
+      <div>
+        <div appReveal class="flex items-center gap-3 mb-6">
+          <span class="h-px w-8 bg-tierra"></span>
+          <span class="font-sans text-xs font-semibold text-tierra uppercase tracking-widest">Servicios</span>
+        </div>
+        <h2 appReveal id="services-title" class="font-serif text-4xl lg:text-5xl font-bold text-carbon leading-tight">
+          Para el bosque que produces<br>y el territorio que cuidas
+        </h2>
+      </div>
+      <div appReveal revealDelay="reveal-delay-1" class="lg:pt-16 flex items-end">
+        <p class="font-sans text-piedra leading-relaxed">
+          Cada predio tiene su historia. Por eso ofrezco acompañamiento técnico adaptado a tu realidad
+          —ya sea un predio familiar, una iniciativa de reforestación o un proceso de regularización ante CONAF.
+        </p>
+      </div>
+    </div>
+
+    <!-- Grid de tarjetas -->
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      @for (service of services; track service.title; let i = $index) {
+        <div appReveal [revealDelay]="'reveal-delay-' + (i % 4 + 1)">
+          <app-service-card [service]="service" />
+        </div>
+      }
+    </div>
+
+  </div>
+</section>
